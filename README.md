@@ -1,8 +1,8 @@
 # Tic Tac Toe & Mastermind
 
-#### [Assignment link](https://www.theodinproject.com/courses/html5-and-css3/lessons/design-your-own-grid-based-framework)
+#### [Assignment link](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
-#### [View in broswer](https://roynyaga.github.io/microverse_building_with_backgrounds_and_radients/)
+#### [View in broswer](https://r4ajeti.github.io/Tic-Tac-Toe/)
 
 ## Project 1: OOP ([Tic-Tac-Toe]).
 
@@ -34,12 +34,12 @@ Build a Mastermind game from the command line where you have 12 turns to guess t
 
 
 #### Authors
-* [Nyaga Andre Roy](https://github.com/RoyNyaga)
 * [Rinor Ajeti](https://github.com/R4Ajeti)
+* [Ansar Yergeshov](https://github.com/ansaryergesh)
 
 #### Contact
-* +237 672272775
-* nyagaandrerroy@gmail.com
+* +383 44903320
+* ansaryergesh@gmail.com
 * r4ajeti@gmail.com
 
 :¨·.·¨:   :¨·.·¨:
