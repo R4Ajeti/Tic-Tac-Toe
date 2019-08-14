@@ -23,3 +23,16 @@ table = SymbolTB.new("", "*", " ", @table_width, 0)
 table.print__symbol__table do |m|
     puts "#{m}"
 end
+
+table = SymbolTB.new("What do you wanna be called?", " ", " ", @table_width, 0)
+table.print__symbol__table do |m|
+    puts "#{m}"
+end
+
+name = gets
+
+table = SymbolTB.new("Choose your Weapon, X or O?", " ", " ", @table_width, 0)
+table.print__symbol__table do |m|
+    puts "#{m}"
+end
+weapon = gets
