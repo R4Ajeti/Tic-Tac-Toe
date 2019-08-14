@@ -1,4 +1,4 @@
-# Tic Tac Toe
+# Tic Tac Toe with Ruby
 
 #### [Assignment link](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
