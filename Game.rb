@@ -32,7 +32,6 @@ table = SymbolTB.new("", "*", " ", @table_width, 0)
 table.print__symbol__table do |m|
     puts "#{m}"
 end
-=end
 =begin
     Header of the Game !END
 =end
@@ -72,7 +71,6 @@ end
 
 puts $player_weapon[0]
 puts $player_weapon[1]
-=end
 
 print_board(nil,3)
 
