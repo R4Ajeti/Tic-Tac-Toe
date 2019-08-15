@@ -7,6 +7,8 @@ $player_weapon = Array[nil,nil]
 $player_title = Array["What do you wanna be called?","You are playing against?"]
 
 =begin
+    Header of the Game !BEGIN
+=end
 game_info = Array["Welcome! Tic Tac Toe", "Game Rules", "Two players will take turns to mark the", 
     "spaces on a 3x3 grid. The player who", "succeeds in placing 3 of their marks in", 
     "a horizontal, vertical, or diagonal row", "wins the game. When there are no more", 
@@ -31,8 +33,13 @@ table.print__symbol__table do |m|
     puts "#{m}"
 end
 =end
+=begin
+    Header of the Game !END
+=end
 
 =begin
+    Dev of the Game !BEGIN
+=end
 for a in 0..$player_name.length-1
     table = SymbolTB.new($player_title[a], " ", " ", @table_width, 0)
     table.print__symbol__table do |m|
@@ -68,3 +75,7 @@ puts $player_weapon[1]
 =end
 
 print_board(nil,3)
+
+=begin
+    Dev of the Game !END
+=end
