@@ -35,3 +35,19 @@ def is_weapon_sign(weapon_p1)
         false
     end
 end
+
+def tableNumTochoice(ind)
+    [(ind-1)/3,(ind-1) % 3];
+end
+
+def in_array(cache, arr)
+    result = false
+    for a in 0..arr.length-1
+        if arr[a].eql? cache
+            result = true
+        else
+            false
+        end
+    end
+    result
+end
