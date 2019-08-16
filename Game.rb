@@ -5,10 +5,11 @@ require './Board'
 $player_name = Array[nil,nil]
 $player_weapon = Array[nil,nil]
 $player_title = Array["What do you wanna be called?","You are playing against?"]
-$new_board = [["","",""],["","",""],["","",""]]
+$new_board = [[" "," "," "],[" "," "," "],[" "," "," "]]
 $player_choice = Array.new(2) { Array.new(5) { Array.new(2) } }
 $player_count=Array[0,0];
 $marks_checked = Array[];
+$player_won = -1;
 
 =begin
     Header of the Game !BEGIN
@@ -95,17 +96,32 @@ for a in 0..8
         concat = $player_name[a]
         puts " Give me a number of available square to hit"
         s = true;
-        cache = "#{gets.strip}".to_i
+        cache = (gets.strip).to_i
         if( cache>0 && cache<10 && !in_array(cache,$marks_checked) )
             $marks_checked[a]=cache
-            cache = tableNumTochoice(cache)
+            if win_confirmation(cache, $player_choice[$player_index])
+                $player_won = $player_index
+                puts "won game"
+                puts $player_won
+            end
+            cache = num_to_choice(cache)
             $new_board[cache[0]][cache[1]] = $player_weapon[$player_index]
-            $player_choice[$player_index][$player_count[$player_index]] = $new_board[cache[0]][cache[1]]
+            $player_choice[$player_index][$player_count[$player_index]] = cache
+            puts "Value: "
+            puts $player_choice[$player_index][$player_count[$player_index]][0]
+            puts $player_choice[$player_index][$player_count[$player_index]][1]
             $player_count[$player_index]=$player_count[$player_index]+1
             break
         end 
     end
     print_board($new_board,5)
+    if $player_won!=-1
+        puts "Congratulation! "+$player_name[$player_won]+" has won the game"
+        break
+    end
+    if a==8
+        puts "The game ends with draw! No winner this time :("
+    end
 end
 
 
