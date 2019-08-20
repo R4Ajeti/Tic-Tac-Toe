@@ -16,15 +16,19 @@ Build a tic-tac-toe game on the command line where two human players can play ag
 * Build your game, taking care to not share information between classes any more than you have to.
 * Post your solution below, then check out the example solution provided.
 
+### Instruction to run the code:
+i. INSTALL GIT AND RUBY ON YOUR MACHINE | Dowload git from here lastest version https://git-scm.com/downloads, and ruby from here https://www.ruby-lang.org/en/downloads/
+ii. OPEN TERMINAL | Go to the dir that you wana save your files
+iii. CLONE THE REPO | On cmd type: 'git clone https://github.com/R4Ajeti/Tic-Tac-Toe.git'
+iv. RUN THE CODE: On cmd type: 'ruby main.rb'
+v. ENJOY PLAYING AND REPORT BUG: Report bug on r4ajeti@gmail.com
 
 #### Authors
 * [Rinor Ajeti](https://github.com/R4Ajeti)
-* [Ansar Yergeshov](https://github.com/ansaryergesh)
 
 #### Contact
 * +383 44903320
 * r4ajeti@gmail.com
-* ansaryergesh@gmail.com
 
 :¨·.·¨:   :¨·.·¨:
 `·. ƮϦαɳk Ψөu .·`

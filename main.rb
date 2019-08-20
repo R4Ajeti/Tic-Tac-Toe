@@ -13,6 +13,9 @@ $marks_checked = Array[];
 $player_won = -1;
 $last_choice="N/A"
 
+Functions = Functions.new
+Board = Board.new
+
 =begin
     Header of the Game !BEGIN
 =end
@@ -68,7 +71,7 @@ for a in 0..$player_name.length-1
         end
         s = true;
         $player_weapon[a] = (gets.strip).upcase
-        if(weapon_confimation($player_weapon[a], $player_weapon[a % $player_name.length-1]))
+        if(Functions.weapon_confimation($player_weapon[a], $player_weapon[a % $player_name.length-1]))
             break
         end 
     end
@@ -83,7 +86,7 @@ if $debug_on
     puts $player_weapon[1]
 end
     
-print_board(nil,5)
+Board.print_board(nil,5)
 
 for newLine in 0..3
     puts
@@ -111,14 +114,14 @@ for a in 0..8
         s = true;
         cache = (gets.strip).to_i
         $last_choice = cache
-        if( cache>0 && cache<10 && !in_array(cache,$marks_checked) )
+        if( cache>0 && cache<10 && !Functions.in_array(cache,$marks_checked) )
             $marks_checked[a]=cache
-            if win_confirmation(cache, $player_choice[$player_index])
+            if Functions.win_confirmation(cache, $player_choice[$player_index])
                 $player_won = $player_index
                 puts "won game"
                 puts $player_won
             end
-            cache = num_to_choice(cache)
+            cache = Functions.num_to_choice(cache)
             $new_board[cache[0]][cache[1]] = $player_weapon[$player_index]
             $player_choice[$player_index][$player_count[$player_index]] = cache
             puts "Value: "
@@ -128,7 +131,7 @@ for a in 0..8
             break
         end 
     end
-    print_board($new_board,5)
+    Board.print_board($new_board,5)
     if $player_won!=-1
         puts "Congratulation! "+$player_name[$player_won]+" has won the game"
         for w in 0..$player_choice[$player_won].length-1
