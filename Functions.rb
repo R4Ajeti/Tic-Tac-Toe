@@ -1,37 +1,58 @@
+$debug_on = false
 def weapon_confimation(weapon_p1, weapon_p2)
-    puts "test1"
+    if $debug_on
+        puts "test1"
+    end
     if(is_weapon_sign(weapon_p1))
-        puts "test2"
+        if $debug_on
+            puts "test2"
+        end
         if weapon_p1.nil?
-            puts "test3"
+            if $debug_on    
+                puts "test3"
+            end
             true
         else
-            puts "test3.2"
+            if $debug_on
+                puts "test3.2"
+            end
             if (weapon_p1.eql? weapon_p2)
-                puts "test4.1"
+                if $debug_on
+                    puts "test4.1"
+                end
                 false
             else
-                puts "test4.2"
-                puts weapon_p1
+                if $debug_on
+                    puts "test4.2"
+                    puts weapon_p1
+                end
                 true
             end
         end
         
     else
-        puts "test1.2"
+        if $debug_on
+            puts "test1.2"
+        end
         false
     end
 end
 
 def is_weapon_sign(weapon_p1)
     if (((weapon_p1.upcase).strip).eql? "X")
-        puts "sign1.1"
+        if $debug_on
+            puts "sign1.1"
+        end
         true
     elsif ((weapon_p1.upcase).strip).eql? "O"
-        puts "sign1.1"
+        if $debug_on
+            puts "sign1.1"
+        end
         true
     else
-        puts "sign1.2"
+        if $debug_on
+            puts "sign1.2"
+        end
         false
     end
 end
@@ -88,27 +109,37 @@ def check_similarity(num, mat, type, length)
             end
         elsif type.eql? "v"
             rowcheck = num/length
-            puts "num"
-            puts 2/3
-            puts num/length
+            if $debug_on
+                puts "num"
+                puts 2/3
+                puts num/length
+            end
             if (num/length<1||( num/length==1 && num % length==0) )
-                puts "test1"
+                if $debug_on
+                    puts "test1"
+                end
                 if (is_num_on_choices(num+3, mat) && is_num_on_choices(num+6, mat) )
                     result = true
                 end
             elsif (num/length<2||( num/length==2 && num % length==0) )
-                puts "test2"
+                if $debug_on
+                    puts "test2"
+                end
                 if (is_num_on_choices(num+3, mat) && is_num_on_choices(num-3, mat) )
                     result = true
                 end
             elsif (num/length<3||( num/length==3 && num % length==0) )
-                puts "test3"
+                if $debug_on
+                    puts "test3"
+                end
                 if (is_num_on_choices(num-3, mat) && is_num_on_choices(num-6, mat) )
                     result = true
                 end
             end
-            puts rowcheck
-            puts 3/2
+            if $debug_on
+                puts rowcheck
+                puts 3/2
+            end
         elsif type.eql? "d"
             if num==1
                 if (is_num_on_choices(num+4, mat) && is_num_on_choices(num+8, mat) )
@@ -139,7 +170,6 @@ end
 def win_confirmation(num, mat)
     result = false
     choice = mat.length
-    coords = mat[0].length
     for c in 0..choice-1
         if check_similarity(num, mat, "h", 3)==true
             result = true

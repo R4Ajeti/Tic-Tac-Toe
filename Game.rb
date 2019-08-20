@@ -2,14 +2,16 @@ require './SymbolTB'
 require './Functions'
 require './Board'
 
+$debug_on = false
 $player_name = Array[nil,nil]
 $player_weapon = Array[nil,nil]
 $player_title = Array["What do you wanna be called?","You are playing against?"]
 $new_board = [[" "," "," "],[" "," "," "],[" "," "," "]]
-$player_choice = Array.new(2) { Array.new(5) { Array.new(2) } }
+$player_choice = Array.new(2) { Array.new { Array.new(2) } }
 $player_count=Array[0,0];
 $marks_checked = Array[];
 $player_won = -1;
+$last_choice="N/A"
 
 =begin
     Header of the Game !BEGIN
@@ -66,23 +68,34 @@ for a in 0..$player_name.length-1
         end
         s = true;
         $player_weapon[a] = (gets.strip).upcase
-        puts true
         if(weapon_confimation($player_weapon[a], $player_weapon[a % $player_name.length-1]))
             break
         end 
     end
 end
-    
-puts $player_weapon[0]
-puts $player_weapon[1]
+
+for newLine in 0..5
+    puts
+end
+
+if $debug_on   
+    puts $player_weapon[0]
+    puts $player_weapon[1]
+end
     
 print_board(nil,5)
+
+for newLine in 0..3
+    puts
+end
 
 for a in 0..8
     puts "Iteration: "
     puts a
     $player_index=a % 2
-    puts $player_index
+    if a!=0
+        puts "#{$last_choice} - was choosen"
+    end
     puts "Its #{$player_name[$player_index]}'s turn"
 
     s = false
@@ -97,6 +110,7 @@ for a in 0..8
         puts " Give me a number of available square to hit"
         s = true;
         cache = (gets.strip).to_i
+        $last_choice = cache
         if( cache>0 && cache<10 && !in_array(cache,$marks_checked) )
             $marks_checked[a]=cache
             if win_confirmation(cache, $player_choice[$player_index])
@@ -117,6 +131,9 @@ for a in 0..8
     print_board($new_board,5)
     if $player_won!=-1
         puts "Congratulation! "+$player_name[$player_won]+" has won the game"
+        for w in 0..$player_choice[$player_won].length-1
+            puts "(#{$player_choice[$player_won][w][0]}, #{$player_choice[$player_won][w][1]})"
+        end
         break
     end
     if a==8
