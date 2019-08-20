@@ -146,7 +146,7 @@ def check_similarity(num, mat, type, length)
                     result = true
                 end
             elsif num==3
-                if (is_num_on_choices(num+2, mat) && is_num_on_choices(num+2, mat) )
+                if (is_num_on_choices(num+2, mat) && is_num_on_choices(num-2, mat) )
                     result = true
                 end
             elsif num==5
