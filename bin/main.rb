@@ -1,6 +1,6 @@
-require './../SymbolTB'
-require './../Functions'
-require './../Board'
+require './../lib/SymbolTB'
+require './../lib/Functions'
+require './../lib/Board'
 
 $debug_on = false
 $player_name = Array[nil,nil]
