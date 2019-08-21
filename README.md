@@ -2,7 +2,7 @@
 
 #### [Assignment link](https://www.theodinproject.com/courses/ruby-programming/lessons/oop)
 
-#### [View in broswer](https://r4ajeti.github.io/Tic-Tac-Toe/)
+#### [View in broswer](https://tic-tac-toe.r4ajeti.repl.run)
 
 ## Project 1: OOP ([Tic-Tac-Toe]).
 
