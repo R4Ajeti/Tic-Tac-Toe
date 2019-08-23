@@ -1,42 +1,41 @@
-class Board
-    def example_board
-        b= [[1,2,3],[4,5,6],[7,8,9]]
-        b
-    end
+# frozen_string_literal: true
 
-    def addSpace (c,n) 
-        space = ""
-        for a in 0..n-1
-            space += c 
-        end
-        space
+class Board
+  def example_board
+    b = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    b
+  end
+
+  def addSpace(c, n)
+    space = ''
+    (0..n - 1).each do |_a|
+      space += c
     end
-    def print_board(arr, cl)
-        ans = ""
-        if arr.nil?
-            arr = [[1,2,3],[4,5,6],[7,8,9]]
-        end
-        row = arr.length
-        col = arr[0].length
-        
-        cellLength = cl
-        for i in 0..row-1
-            line = ""
-            if i>0&&i<row
-                ans += "\n"
-                ans += "#{addSpace("-",cellLength)}"+"+"+"#{addSpace("-",cellLength)}"+"+"+"#{addSpace("-",cellLength)}"
-            end
-            for j in 0..col-1
-                if j>0&&j<col
-                    line = line+"|"
-                end
-                line += "#{addSpace(" ",(cellLength/2).floor)}"
-                line += "#{arr[i][j]}"
-                line += "#{addSpace(" ",(cellLength/2).floor)}"
-            end
-            ans += "\n"
-            ans += line
-        end
-        ans
+    space
+  end
+
+  def print_board(arr, cl)
+    ans = ''
+    arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] if arr.nil?
+    row = arr.length
+    col = arr[0].length
+
+    cellLength = cl
+    (0..row - 1).each do |i|
+      line = ''
+      if i > 0 && i < row
+        ans += "\n"
+        ans += addSpace('-', cellLength).to_s + '+' + addSpace('-', cellLength).to_s + '+' + addSpace('-', cellLength).to_s
+      end
+      (0..col - 1).each do |j|
+        line += '|' if j > 0 && j < col
+        line += addSpace(' ', (cellLength / 2).floor).to_s
+        line += (arr[i][j]).to_s
+        line += addSpace(' ', (cellLength / 2).floor).to_s
+      end
+      ans += "\n"
+      ans += line
     end
+    ans
+  end
 end
