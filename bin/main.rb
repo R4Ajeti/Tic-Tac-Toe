@@ -18,11 +18,16 @@ require_relative('./../lib/Board')
 Functions = Functions.new
 Board = Board.new
 
-game_info = Array['Welcome! Tic Tac Toe', 'Game Rules', 'Two players will take turns to mark the',
-                  'spaces on a 3x3 grid. The player who', 'succeeds in placing 3 of their marks in',
-                  'a horizontal, vertical, or diagonal row', 'wins the game. When there are no more',
-                  'spaces left to mark, it is consider a', 'draw. To place a mark on the grid, type',
-                  'the number on the space you would like', 'to mark! As shown below. Good luck!']
+game_info = Array['Welcome! Tic Tac Toe', 'Game Rules',
+                  'Two players will take turns to mark the',
+                  'spaces on a 3x3 grid. The player who',
+                  'succeeds in placing 3 of their marks in',
+                  'a horizontal, vertical, or diagonal row',
+                  'wins the game. When there are no more',
+                  'spaces left to mark, it is consider a',
+                  'draw. To place a mark on the grid, type',
+                  'the number on the space you would like',
+                  'to mark! As shown below. Good luck!']
 
 @table_width = 52
 table = SymbolTB.new('', '*', ' ', @table_width, 0)
@@ -58,19 +63,21 @@ end
       end
     end
     concat = @player_name[a].strip
-    table = SymbolTB.new('Choose your Weapon, X or O?', ' ', ' ', @table_width, 0)
+    table = SymbolTB.new('Choose your Weapon, X or O?', ' ',
+                         ' ', @table_width, 0)
     table.print__symbol__table do |m|
       puts m.to_s
     end
     s = true
     @player_weapon[a] = gets.strip.upcase
-    if Functions.weapon_confimation(@player_weapon[a], @player_weapon[a % @player_name.length - 1])
+    if Functions.weapon_confimation(@player_weapon[a],
+                                    @player_weapon[a % @player_name.length - 1])
       break
     end
   end
 end
 
-(0..5).each do |_newLine|
+(0..5).each do |_new_line|
   puts
 end
 
@@ -81,7 +88,7 @@ end
 
 puts Board.print_board(nil, 5)
 
-(0..3).each do |_newLine|
+(0..3).each do |_new_line|
   puts
 end
 
@@ -100,12 +107,12 @@ end
         puts m.to_s
       end
     end
-    concat = @player_name[a]
+    concat = @player_name[a].strip
     puts ' Give me a number of available square to hit'
     s = true
     cache = gets.strip.to_i
     @last_choice = cache
-    next unless cache > 0 && cache < 10 && !Functions.in_array(cache, @marks_checked)
+    next unless cache.possitive? && cache < 10 && !Functions.in_array(cache, @marks_checked)
 
     @marks_checked[a] = cache
     if Functions.win_confirmation(cache, @player_choice[@player_index])
