@@ -12,6 +12,7 @@ class Board
         space
     end
     def print_board(arr, cl)
+        ans = ""
         if arr.nil?
             arr = [[1,2,3],[4,5,6],[7,8,9]]
         end
@@ -22,7 +23,8 @@ class Board
         for i in 0..row-1
             line = ""
             if i>0&&i<row
-                puts "#{addSpace("-",cellLength)}"+"+"+"#{addSpace("-",cellLength)}"+"+"+"#{addSpace("-",cellLength)}"
+                ans += "\n"
+                ans += "#{addSpace("-",cellLength)}"+"+"+"#{addSpace("-",cellLength)}"+"+"+"#{addSpace("-",cellLength)}"
             end
             for j in 0..col-1
                 if j>0&&j<col
@@ -32,7 +34,9 @@ class Board
                 line += "#{arr[i][j]}"
                 line += "#{addSpace(" ",(cellLength/2).floor)}"
             end
-            puts line
+            ans += "\n"
+            ans += line
         end
+        ans
     end
 end

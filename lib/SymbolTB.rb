@@ -19,9 +19,6 @@ class SymbolTB
         # @table_size = table_size.nil? ? 32 : ( ((table_size-@sentence.length)%2==1) ? (table_size + 1) : table_size) 
         @padding = table_size.nil? ? 1 : padding
     end
-    def printN(n)
-        puts "worked!#{n}"
-    end
     def print__symbol__table
         length = @sentence.length
         margin_left = (@table_size - length - (2*@padding) )/2
