@@ -17,7 +17,7 @@ require_relative('./../lib/board')
 @wn = Array['Wrong weapon chosen! :(', 'Wrong Number! :(']
 
 fun = Functions.new
-board = Board.new
+board = BOARD.new
 
 game_info = Array['Welcome! Tic Tac Toe', 'Game Rules',
                   'Two players will take turns to mark the',

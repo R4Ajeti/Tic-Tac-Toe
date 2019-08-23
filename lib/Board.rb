@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Board
+class BOARD
   # This class manages sample and input boards
   # example_board
   def example_board
