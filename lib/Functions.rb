@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Functions
+  # This class contain all function of the game overflow
   @debug_on = false
   def weapon_confimation(weapon_p1, weapon_p2)
     puts 'test1' if @debug_on
-    if is_weapon_sign(weapon_p1)
+    if weapon_sign?(weapon_p1)
       puts 'test2' if @debug_on
       if weapon_p1.nil?
         puts 'test3' if @debug_on
@@ -29,7 +30,7 @@ class Functions
     end
   end
 
-  def is_weapon_sign(weapon_p1)
+  def weapon_sign?(weapon_p1)
     if weapon_p1.upcase.strip.eql? 'X'
       puts 'sign1.1' if @debug_on
       true
@@ -62,7 +63,7 @@ class Functions
     arr[0] * 3 + arr[1] + 1
   end
 
-  def is_num_on_choices(num, mat)
+  def num_on_choices?(num, mat)
     result = false
     coords = num_to_choice(num)
     (0..mat.length - 1).each do |c|
@@ -79,18 +80,18 @@ class Functions
     result = false
     # for c in 0..length-1
     if type.eql? 'h'
-      if num % length == 0
-        if is_num_on_choices(num - 1, mat) && is_num_on_choices(num - 2, mat)
+      if (num % length).zero?
+        if num_on_choices?(num - 1, mat) && num_on_choices?(num - 2, mat)
           result = true
-          end
+        end
       elsif num % length == 2
-        if is_num_on_choices(num + 1, mat) && is_num_on_choices(num - 1, mat)
+        if num_on_choices?(num + 1, mat) && num_on_choices?(num - 1, mat)
           result = true
-          end
+        end
       elsif num % length == 1
-        if is_num_on_choices(num + 1, mat) && is_num_on_choices(num + 2, mat)
+        if num_on_choices?(num + 1, mat) && num_on_choices?(num + 2, mat)
           result = true
-          end
+        end
       end
     elsif type.eql? 'v'
       rowcheck = num / length
@@ -99,19 +100,19 @@ class Functions
         puts 2 / 3
         puts num / length
       end
-      if num / length < 1 || (num / length == 1 && num % length == 0)
+      if num / length < 1 || (num / length == 1 && (num % length).zero?)
         puts 'test1' if @debug_on
-        if is_num_on_choices(num + 3, mat) && is_num_on_choices(num + 6, mat)
+        if num_on_choices?(num + 3, mat) && num_on_choices?(num + 6, mat)
           result = true
         end
-      elsif num / length < 2 || (num / length == 2 && num % length == 0)
+      elsif num / length < 2 || (num / length == 2 && (num % length).zero?)
         puts 'test2' if @debug_on
-        if is_num_on_choices(num + 3, mat) && is_num_on_choices(num - 3, mat)
+        if num_on_choices?(num + 3, mat) && num_on_choices?(num - 3, mat)
           result = true
         end
-      elsif num / length < 3 || (num / length == 3 && num % length == 0)
+      elsif num / length < 3 || (num / length == 3 && (num % length).zero?)
         puts 'test3' if @debug_on
-        if is_num_on_choices(num - 3, mat) && is_num_on_choices(num - 6, mat)
+        if num_on_choices?(num - 3, mat) && num_on_choices?(num - 6, mat)
           result = true
         end
       end
@@ -121,27 +122,27 @@ class Functions
       end
     elsif type.eql? 'd'
       if num == 1
-        if is_num_on_choices(num + 4, mat) && is_num_on_choices(num + 8, mat)
+        if num_on_choices?(num + 4, mat) && num_on_choices?(num + 8, mat)
           result = true
         end
       elsif num == 3
-        if is_num_on_choices(num + 2, mat) && is_num_on_choices(num - 2, mat)
+        if num_on_choices?(num + 2, mat) && num_on_choices?(num - 2, mat)
           result = true
         end
       elsif num == 5
-        if (is_num_on_choices(num + 4, mat) && is_num_on_choices(num - 4, mat)) || (is_num_on_choices(num + 2, mat) && is_num_on_choices(num - 2, mat))
+        if (num_on_choices?(num + 4, mat) && num_on_choices?(num - 4, mat)) || (num_on_choices?(num + 2, mat) && num_on_choices?(num - 2, mat))
           result = true
         end
       elsif num == 7
-        if is_num_on_choices(num - 2, mat) && is_num_on_choices(num - 4, mat)
+        if num_on_choices?(num - 2, mat) && num_on_choices?(num - 4, mat)
           result = true
         end
       elsif num == 9
-        if is_num_on_choices(num - 4, mat) && is_num_on_choices(num - 8, mat)
+        if num_on_choices?(num - 4, mat) && num_on_choices?(num - 8, mat)
           result = true
         end
-        end
       end
+    end
     # end
     result
   end
