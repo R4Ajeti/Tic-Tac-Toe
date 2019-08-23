@@ -23,12 +23,12 @@ class Board
     cellLength = cl
     (0..row - 1).each do |i|
       line = ''
-      if i > 0 && i < row
+      if i.positive && i < row
         ans += "\n"
         ans += addSpace('-', cellLength).to_s + '+' + addSpace('-', cellLength).to_s + '+' + addSpace('-', cellLength).to_s
       end
       (0..col - 1).each do |j|
-        line += '|' if j > 0 && j < col
+        line += '|' if j.positive && j < col
         line += addSpace(' ', (cellLength / 2).floor).to_s
         line += (arr[i][j]).to_s
         line += addSpace(' ', (cellLength / 2).floor).to_s
