@@ -111,7 +111,7 @@ end
     cache = gets.strip.to_i
     @last_choice = cache
     help = cache < 10 && !fun.in_array(cache, @marks_checked)
-    next unless cache.possitive? && help
+    next unless cache.positive? && help
 
     @marks_checked[a] = cache
     if fun.win_confirmation(cache, @pl_choice[@player_index])

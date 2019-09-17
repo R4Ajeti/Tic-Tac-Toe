@@ -27,18 +27,18 @@ class BOARD
     cell_length = clen
     (0..row - 1).each do |i|
       line = ''
-      if i.positive && i < row
-        ans += '\n' + add_space('-', cell_length).to_s + '+'
+      if i.positive? && i < row
+        ans += "\n" + add_space('-', cell_length).to_s + '+'
         ans += add_space('-', cell_length).to_s + '+'
         ans += add_space('-', cell_length).to_s
       end
       (0..col - 1).each do |j|
-        line += '|' if j.positive && j < col
+        line += '|' if j.positive? && j < col
         line += add_space(' ', (cell_length / 2).floor).to_s
         line += (arr[i][j]).to_s
         line += add_space(' ', (cell_length / 2).floor).to_s
       end
-      ans += '\n'
+      ans += "\n"
       ans += line
     end
     ans
