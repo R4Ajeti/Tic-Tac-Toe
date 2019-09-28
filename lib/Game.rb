@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Functions
+class Game
   # This class contain all function of the game overflow
   @debug_on = false
   def weapon_confimation(weapon_p1, weapon_p2)
