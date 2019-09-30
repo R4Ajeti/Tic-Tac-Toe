@@ -19,7 +19,6 @@ class Symbol_t_b
     @cover_symb = cover_symb.nil? ? '*' : cover_symb
     @neutral_symb = neutral_symb.nil? ? ' ' : neutral_symb
     @table_size = table_size.nil? ? 32 : table_size
-    # @table_size = table_size.nil? ? 32 : ( ((table_size-@sentence.length)%2==1) ? (table_size + 1) : table_size)
     @padding = table_size.nil? ? 1 : padding
   end
 
@@ -29,7 +28,6 @@ class Symbol_t_b
     sentence_to_print = ''
     (0..(margin_l + @padding)).each do |i|
       sentence_to_print += if i == margin_l + @padding
-                             # yield(margin_right)
                              @sentence
                            elsif i >= margin_l && i < margin_l + @padding
                              @neutral_symb

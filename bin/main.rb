@@ -1,5 +1,5 @@
 require_relative('./../lib/Game_controller')
-require_relative('./../lib/game')
+require_relative('./../lib/Game')
 require_relative('./../lib/board')
 
 game_index = 0

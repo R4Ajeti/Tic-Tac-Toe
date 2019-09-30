@@ -78,7 +78,6 @@ class Game
 
   def check_similarity(num, mat, type, length)
     result = false
-    # for c in 0..length-1
     if type.eql? 'h'
       if (num % length).zero?
         if num_on_choices?(num - 1, mat) && num_on_choices?(num - 2, mat)
@@ -143,7 +142,6 @@ class Game
         end
       end
     end
-    # end
     result
   end
 
