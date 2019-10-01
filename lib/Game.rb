@@ -2,43 +2,29 @@
 
 class Game
   # This class contain all function of the game overflow
-  @debug_on = false
   def weapon_confimation(weapon_p1, weapon_p2)
-    puts 'test1' if @debug_on
     if weapon_sign?(weapon_p1)
-      puts 'test2' if @debug_on
       if weapon_p1.nil?
-        puts 'test3' if @debug_on
         true
       else
-        puts 'test3.2' if @debug_on
-        if weapon_p1.eql? weapon_p2
-          puts 'test4.1' if @debug_on
+        if weapon_p1.eql? weapon_p2n
           false
         else
-          if @debug_on
-            puts 'test4.2'
-            puts weapon_p1
-          end
           true
         end
       end
 
     else
-      puts 'test1.2' if @debug_on
       false
     end
   end
 
   def weapon_sign?(weapon_p1)
     if weapon_p1.upcase.strip.eql? 'X'
-      puts 'sign1.1' if @debug_on
       true
     elsif weapon_p1.upcase.strip.eql? 'O'
-      puts 'sign1.1' if @debug_on
       true
     else
-      puts 'sign1.2' if @debug_on
       false
     end
   end
@@ -94,30 +80,21 @@ class Game
       end
     elsif type.eql? 'v'
       rowcheck = num / length
-      if @debug_on
-        puts 'num'
         puts 2 / 3
         puts num / length
       end
       if num / length < 1 || (num / length == 1 && (num % length).zero?)
-        puts 'test1' if @debug_on
         if num_on_choices?(num + 3, mat) && num_on_choices?(num + 6, mat)
           result = true
         end
       elsif num / length < 2 || (num / length == 2 && (num % length).zero?)
-        puts 'test2' if @debug_on
         if num_on_choices?(num + 3, mat) && num_on_choices?(num - 3, mat)
           result = true
         end
       elsif num / length < 3 || (num / length == 3 && (num % length).zero?)
-        puts 'test3' if @debug_on
         if num_on_choices?(num - 3, mat) && num_on_choices?(num - 6, mat)
           result = true
         end
-      end
-      if @debug_on
-        puts rowcheck
-        puts 3 / 2
       end
     elsif type.eql? 'd'
       if num == 1
