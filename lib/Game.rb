@@ -7,7 +7,7 @@ class Game
       if weapon_p1.nil?
         true
       else
-        if weapon_p1.eql? weapon_p2n
+        if weapon_p1.eql? weapon_p2
           false
         else
           true
@@ -80,9 +80,6 @@ class Game
       end
     elsif type.eql? 'v'
       rowcheck = num / length
-        puts 2 / 3
-        puts num / length
-      end
       if num / length < 1 || (num / length == 1 && (num % length).zero?)
         if num_on_choices?(num + 3, mat) && num_on_choices?(num + 6, mat)
           result = true
