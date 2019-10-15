@@ -14,7 +14,7 @@ class Game_controller
   @@last_choice = 'N/A'
   @@wn = Array['Wrong weapon chosen! :(', 'Wrong Number! :(']
 
-  # constructor
+  # constructor 
   def initialize(fun, board)
     initiate(fun, board)
   end
